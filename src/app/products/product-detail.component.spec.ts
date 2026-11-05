@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProductDetailComponent } from './product-detail.component';
 
@@ -8,7 +10,15 @@ describe('ProductDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductDetailComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ProductDetailComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: { snapshot: { paramMap: { get: () => '1' } } }
+        },
+        { provide: Router, useValue: jasmine.createSpyObj('Router', ['navigate']) }
+      ]
     })
     .compileComponents();
 
