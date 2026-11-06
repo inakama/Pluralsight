@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
-import { StartComponent } from '../shared/star.components';
+import { StartComponent } from '../shared/star.component';
 
 @NgModule({
   declarations: [
